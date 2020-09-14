@@ -26,8 +26,27 @@ let commands = {
   "bee": require('./commands/beemoviequote.js')
 }
 
+const blacklisted = [ "ROBLOX", "LUA" ];
+
 client.on('message', msg => {
-  const message = msg.content
+  const message = msg.content;
+
+  for (let phrase in blacklisted)
+  {
+    if (message.includes(phrase))
+    {
+      await msg.delete();
+    }
+  }
+
+client.on('messageUpdate', (old_message, new_message) =>
+{
+  if (new_message.content == "(post withdrawn by author, will be automatically deleted in 1 hour unless flagged)")
+  {
+    
+  }
+})
+
   let args = message.slice(prefix.length).trim().split(' ');
 
   if(message.charAt(0) != prefix){
