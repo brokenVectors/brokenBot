@@ -8,10 +8,6 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-
-
-
-
 let commands = {
   "ping": require('./commands/ping.js'),
   "epic_phrase": require('./commands/epic_phrase.js'),
